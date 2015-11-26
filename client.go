@@ -55,7 +55,7 @@ func main() {
 					stdin.ReadString('\n')
 					break;
 				}
-				fmt.Println("value"+rec.Value);
+				//fmt.Println("value"+rec.Value);
 				mes,err:= PUTdata(rec)
 				if err != nil {
 					fmt.Println(err);
@@ -84,24 +84,6 @@ func main() {
 				fmt.Println("***************************************")
 				break;
 			}
-			case 3:{
-				fmt.Println("Remove (format: serverPort(3000,3001,3002))")
-				_,err := fmt.Fscanln(stdin,&rec.Key)
-				if err != nil {
-					fmt.Println("Format Error: Do not input the character");
-					stdin.ReadString('\n')
-					break;
-				}
-				mes,err:= GET(rec.Key)
-				if err != nil {
-					fmt.Println(err);
-					break
-				}
-				fmt.Println("\n***************************************")
-				fmt.Println(mes.Message)
-				fmt.Println("***************************************")
-				break;
-			}
 			default:{
 
 			}
@@ -110,8 +92,7 @@ func main() {
 		fmt.Println("\nPlease input the number of function that you want to choose:" )
 		fmt.Println("1. PUT key and value ")
 		fmt.Println("2. GET value by key ")
-		fmt.Println("3. Remove one serverNode ")
-		fmt.Println("4. Exit ")
+		fmt.Println("3. Exit ")
 		n=0;
 		rec.Key = 0;
 		rec.Value=""
@@ -220,12 +201,12 @@ func GetServerNode(key int) string {
     if len(circle) == 0 {
       return "";
     }
-	fmt.Println("GetServerNode")
+	//fmt.Println("GetServerNode")
     hash := hashFunction(key)
-	fmt.Println(hash)
+	//fmt.Println(hash)
 	//fmt.Println("circle[key]:" + circle[hash])
     _, ok := circle[hash]
-    fmt.Println(ok)
+    //fmt.Println(ok)
     if (ok == false) {
     	i := 0
     	var res string
@@ -236,7 +217,7 @@ func GetServerNode(key int) string {
         		i = -1
         	}
 			if circleKey[k] >= hash {
-				fmt.Println("circle[k]:" + circle[circleKey[k]])
+				//fmt.Println("circle[k]:" + circle[circleKey[k]])
 				return circle[circleKey[k]]
 			} 
 		}
